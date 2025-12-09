@@ -1,0 +1,61 @@
+graph TD
+    Start([Feature Requirements]) --> MP[master_plan.md<br/>Immutable Guideline]
+    
+    MP --> Phase0[Phase 0: Feature to Plan Conversion]
+    Start --> Phase0
+    
+    Phase0 --> PlanMD[plan.md<br/>Feature Requirements]
+    Phase0 --> TestMD[test.md<br/>Success Criteria]
+    
+    PlanMD --> Phase1[Phase 1: Iteration 1<br/>Initial Wave Decomposition]
+    TestMD --> Phase1
+    MP --> Phase1
+    
+    Phase1 --> Wave1[waves/wave1/planw1.md]
+    Phase1 --> Wave2[waves/wave2/planw2.md]
+    Phase1 --> Wave3[waves/wave3/planw3.md]
+    Phase1 --> WaveN[waves/waveN/planwN.md]
+    
+    Wave1 --> Phase2[Phase 2: Iteration 2<br/>Self-Resolution + Test Generation]
+    Wave2 --> Phase2
+    Wave3 --> Phase2
+    WaveN --> Phase2
+    
+    TestMD --> Phase2
+    History[Project History<br/>Chat Logs & Patterns] --> Phase2
+    
+    Phase2 --> Wave1U[waves/wave1/<br/>planw1.md updated<br/>testw1.md]
+    Phase2 --> Wave2U[waves/wave2/<br/>planw2.md updated<br/>testw2.md]
+    Phase2 --> Wave3U[waves/wave3/<br/>planw3.md updated<br/>testw3.md]
+    Phase2 --> WaveNU[waves/waveN/<br/>planwN.md updated<br/>testwN.md]
+    Phase2 --> DecLog[decision_log.md<br/>Audit Trail]
+    
+    Wave1U --> Phase3[Phase 3: Dependency Analysis<br/>& Stage Creation]
+    Wave2U --> Phase3
+    Wave3U --> Phase3
+    WaveNU --> Phase3
+    
+    Phase3 --> Stages[stages.md<br/>Execution Stages & Dependencies]
+    
+    Stages --> Phase4[Phase 4: Implementation<br/>Theoretical - Multi-Agent Parallel]
+    Wave1U --> Phase4
+    Wave2U --> Phase4
+    Wave3U --> Phase4
+    WaveNU --> Phase4
+    
+    Phase4 --> Stage1[Stage 1: Execute Independent Waves]
+    Phase4 --> Stage2[Stage 2: Execute Dependent Waves]
+    Phase4 --> StageN[Stage N: Final Waves]
+    
+    Stage1 --> Output[Working Implementation]
+    Stage2 --> Output
+    StageN --> Output
+    
+    style MP fill:#e1f5ff,stroke:#333,stroke-width:3px
+    style Phase0 fill:#fff4e6,stroke:#333,stroke-width:2px
+    style Phase1 fill:#e8f5e9,stroke:#333,stroke-width:2px
+    style Phase2 fill:#f3e5f5,stroke:#333,stroke-width:2px
+    style Phase3 fill:#fff9c4,stroke:#333,stroke-width:2px
+    style Phase4 fill:#ffebee,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+    style History fill:#e0f2f1,stroke:#333,stroke-width:2px
+    style Output fill:#c8e6c9,stroke:#333,stroke-width:3px
